@@ -51,6 +51,7 @@
 
           console.log("#### WebGL is ready now ####");
           setTimeout(function() {
+            console.log('delayInit');
             instance.SendMessage('WebBridge', 'InitUserID', `ID: ${WebApp.initDataUnsafe.user.id}`);
           }, 2500);
 
@@ -58,6 +59,7 @@
       }
 
       var UserInit = () => {
+        console.log('startInit');
         instance.SendMessage('WebBridge', 'InitUserID', `ID: ${WebApp.initDataUnsafe.user.id}`);
       }
       
