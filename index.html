@@ -37,12 +37,29 @@
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
-      console.log(`${instance}`);
+
+      var progress = 0;
+
+      function UnityProgress(instance, progress) {
+        if (progress == 1.0) {
+          instance.logo.style.display = instance.progress.style.display = "none";
+
+          // call of my function:
+
+          console.log("#### WebGL is ready now ####");
+          setTimeout(function() {
+            instance.SendMessage('WebBridge', 'InitUserID', `ID: ${WebApp.initDataUnsafe.user.id}`);
+          }, 2500);
+
+        }
+      }
+      console.log(`${instance.companyName}`);
       var WebApp = window.Telegram.WebApp;
-      instance.SendMessage('WebBridge', 'InitUserID', `ID: ${WebApp.initDataUnsafe.user.id}`);
       WebApp.expand(); 
       WebApp.showAlert(`Привет, ${WebApp.initDataUnsafe.user.first_name}.`);
 
+      
+      
       
     </script>
   </body>
