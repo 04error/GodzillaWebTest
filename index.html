@@ -26,7 +26,7 @@
         document.body.style.textAlign = "left";
       }
 
-      createUnityInstance(document.querySelector("#unity-canvas"), {
+      var unityInstance = createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/GodzillaWebTest.data",
         frameworkUrl: "Build/GodzillaWebTest.framework.js",
         codeUrl: "Build/GodzillaWebTest.wasm",
@@ -39,8 +39,11 @@
       });
 
       var WebApp = window.Telegram.WebApp;
+      unityInstance.SendMessage('WebBridge', 'InitUserID', `${WebApp.initDataUnsafe.user.id}`);
       WebApp.expand(); 
       WebApp.showAlert(`Привет, ${WebApp.initDataUnsafe.user.first_name}.`);
+
+      
     </script>
   </body>
 </html>
