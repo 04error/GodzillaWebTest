@@ -39,8 +39,8 @@
       });
 
       var WebApp = window.Telegram.WebApp;
-      console.log(WebApp.WebAppUser);
-      WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`);
+      WebApp.expand(); 
+      WebApp.showAlert(`Добро пожаловать!`);
     </script>
   </body>
 </html>
