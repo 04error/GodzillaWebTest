@@ -39,7 +39,7 @@
       });
 
       var WebApp = window.Telegram.WebApp;
-      unityInstance.SendMessage('WebBridge', 'InitUserID', `${WebApp.initDataUnsafe.user.id}`);
+      unityInstance.SendMessage('WebBridge', 'InitUserID', `ID: ${WebApp.initDataUnsafe.user.id}`);
       WebApp.expand(); 
       WebApp.showAlert(`Привет, ${WebApp.initDataUnsafe.user.first_name}.`);
 
