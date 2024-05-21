@@ -25,10 +25,8 @@
 
         document.body.style.textAlign = "left";
       }
-
-      var instance = null;
       
-      createUnityInstance(document.querySelector("#unity-canvas"), {
+      var instance = createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/GodzillaWebTest.data",
         frameworkUrl: "Build/GodzillaWebTest.framework.js",
         codeUrl: "Build/GodzillaWebTest.wasm",
@@ -38,10 +36,10 @@
         productVersion: "0.0.4",
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      }.then((unityInstance) => {instance = unityInstance;}));
-
+      });
+      console.log(`${instance}`);
       var WebApp = window.Telegram.WebApp;
-      unityInstance.SendMessage('WebBridge', 'InitUserID', `ID: ${WebApp.initDataUnsafe.user.id}`);
+      instance.SendMessage('WebBridge', 'InitUserID', `ID: ${WebApp.initDataUnsafe.user.id}`);
       WebApp.expand(); 
       WebApp.showAlert(`Привет, ${WebApp.initDataUnsafe.user.first_name}.`);
 
