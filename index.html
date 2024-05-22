@@ -41,7 +41,7 @@
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       }).then((instance) => {
-            instance.SendMessage('WebBridge', 'InitUserID', `${WebApp.initDataUnsafe.user.id}`);        
+            instance.SendMessage('WebBridge', 'InitUserID', `ID: ${WebApp.initDataUnsafe.user.id}`);        
         });
 
       var UserInit = () => {
