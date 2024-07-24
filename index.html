@@ -38,6 +38,7 @@
       var WebApp = window.Telegram.WebApp;
       WebApp.expand(); 
       WebApp.showAlert(`Привет, ${WebApp.initDataUnsafe.user.first_name}. Пожалуйста, подожди загрузки!`);
+      WebApp.disableVerticalSwipes();
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/GodzillaWebTest.data",
