@@ -3,13 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>TUNERS CLUB</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
   </head>
-  <body style="text-align: center; padding: 0; border: 0; margin: 0; width: 100%; height: 100%;">
-    <canvas id="unity-canvas" width=600 height=960 tabindex="-1" style="width: 600px; height: 960px; background: #000000"></canvas>
-    <!-- Google tag (gtag.js) -->
+  <body>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-57288722W7"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -118,10 +117,10 @@
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 loadingBar.style.display = "none";
-                fullscreenButton.onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                  unityInstance.SendMessage('WebBridge', 'InitUserID', `ID: ${WebApp.initDataUnsafe.user.id}`);
-                };
+
+                //unityInstance.SetFullscreen(1);
+                unityInstance.SendMessage('WebBridge', 'InitUserID', `ID: ${WebApp.initDataUnsafe.user.id}`);
+
               }).catch((message) => {
                 alert(message);
               });
